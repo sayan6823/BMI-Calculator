@@ -139,31 +139,31 @@
         function calculate() {
 	        weight = document.getElementById("weight").value;
 	        height = document.getElementById("height").value;
-	        bmi = weight/Math.pow(height,2);
-	        bmi = bmi.toFixed(1);
 
-	        if(bmi<18.5){
-                interpretation="Your BMI is "+bmi+", so you are underweight.";
-            }
-            else if(bmi>=18.5 && bmi<24.9) {
-                interpretation="Your BMI is "+bmi+", so you are healthy.";
-            }
-            else if(bmi>=25 && bmi<29.9){
-                interpretation="Your BMI is "+bmi+", so you are overweight.";
-            }else{
-                interpretation="Your BMI is "+bmi+", so you are obese.";
-            }
-	
-            // Error Handling
-	        if (weight === 0 || height === 0) {
-	        	document.getElementById("results").innerHTML = "Weight or Height cannot be 0";
+            if(weight == 0) {
+	        	interpretation = "Weight cannot be 0";
+	        }else if (height == 0) {
+	        	interpretation = "Height cannot be 0";
 	        }else if (weight < 0) {
-	        	document.getElementById("results").innerHTML = "Negative Values for weight not Allowed";
+	        	interpretation = "Negative Values for weight  is not allowed";
 	        }else {
-                document.getElementById("results").innerHTML = interpretation;
-	        }
-	        
-        }
+                
+	            bmi = weight/Math.pow(height,2);
+	            bmi = bmi.toFixed(1);
+
+	            if(bmi<18.5){
+                    interpretation="Your BMI is "+bmi+", so you are underweight.";
+                }
+                else if(bmi>=18.5 && bmi<24.9) {
+                    interpretation="Your BMI is "+bmi+", so you are healthy.";
+                }
+                else if(bmi>=25 && bmi<29.9){
+                    interpretation="Your BMI is "+bmi+", so you are overweight.";
+                }else{
+                    interpretation="Your BMI is "+bmi+", so you are obese.";
+                }
+            }
+            document.getElementById("results").innerHTML = interpretation;
        
     </script>
 </body>
