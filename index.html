@@ -140,8 +140,10 @@
         function calculate() {
 	        weight = document.getElementById("weight").value;
 	        height = document.getElementById("height").value;
-
-            if(weight == 0) {
+		
+		if(weight==0 && height==0){
+			interpretation = "Please enter the values";
+		}else if(weight == 0) {
 	        	interpretation = "Weight cannot be 0";
 	        }else if (height == 0) {
 	        	interpretation = "Height cannot be 0";
